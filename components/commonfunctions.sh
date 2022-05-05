@@ -22,3 +22,9 @@ statusCheck()
 }
 
 LOG_FILE=/tmp/commerce.log
+rm -rf ${LOF_FILE}
+
+ECHO(){
+  echo "======================$1===============\n"
+  echo $1
+}
