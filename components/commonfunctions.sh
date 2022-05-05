@@ -25,6 +25,6 @@ LOG_FILE=/tmp/commerce.log
 rm -rf ${LOF_FILE}
 
 ECHO(){
-  echo "======================$1===============\n"
-  echo $1
+  echo -e "======================$1===============\n" >>${LOG_FILE}
+  echo "$1"
 }
