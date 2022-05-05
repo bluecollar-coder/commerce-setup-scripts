@@ -20,3 +20,5 @@ statusCheck()
     exit 1
   if
 }
+
+LOG_FILE=/tmp/commerce.log
