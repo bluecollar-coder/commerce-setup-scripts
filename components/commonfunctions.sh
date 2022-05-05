@@ -17,6 +17,7 @@ statusCheck()
     echo -e "\e[32m SUCCESS \e[0m"
   else
     echo -e "\e[31m FAILURE \e[0m"
+    echo "Check error log in ${LOG_FILE}"
     exit 1
   fi
 }
