@@ -25,9 +25,16 @@ ECHO "Copying extracted Content"
 mv frontend-main/* . &>>${LOG_FILE} && mv static/* . &>>${LOG_FILE} && rm -rf frontend-main README.md &>>${LOG_FILE}
 statusCheck $?
 
-ECHO "Copy Robo-Shop Nginx Config"
+ECHO "Copy Commerce Nginx Config"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf &>>${LOG_FILE}
 statusCheck $?
+
+ECHO "Update Nginx Configurations"
+for component in catalogue user cart shipping payment ; do
+  ECHO "Update Configuration for ${component}"
+  sed -i -e "/${component}/ s/localhost/${component}.roboshop.internal/"  /etc/nginx/default.d/roboshop.conf
+  statusCheck $?
+done
 
 ECHO "Start Nginx Service"
 systemctl enable nginx &>>${LOG_FILE} && systemctl restart nginx &>>${LOG_FILE}

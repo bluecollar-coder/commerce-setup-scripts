@@ -2,5 +2,6 @@
 
 source components/common.sh
 checkUserPermissions
-COMPONENT=cart
-NODEJS
+COMPONENT=shipping
+
+JAVA
